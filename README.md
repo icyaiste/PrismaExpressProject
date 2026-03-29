@@ -1,16 +1,19 @@
 # PrismaExpressAPI
 
 ## 🚀 How to run the server
-* Install dependencies:  
+* Install dependencies
+* Generate Prisma client 
+* Run database migrations (if needed)
+* Seed the database
+* Start the server
+
+```
 npm install
-* Generate Prisma client:  
 npx prisma generate
-* Run database migrations (if needed):  
 npx prisma migrate dev
-* Seed the database:  
 npm run seed
-* Start the server:  
 npm run dev
+```
 
 Server will run on:  
 http://localhost:3000
@@ -21,7 +24,7 @@ Insomnia
 Postman  
 Thunder Client (VS Code) or any other tool you prefer
 
-📌 Available Routes  
+### 📌 Available Routes  
 1. GET all users  
 Endpoint: GET /userlanguages  
 Description: Returns all users with their names and languages.
@@ -33,6 +36,7 @@ Description:  Returns users who speak a specific language.
 
 3. POST new user  
 Endpoint: POST /userlanguages  
+Description: Creates a new user.
 Body (JSON):
 ```
 {
@@ -42,10 +46,10 @@ Body (JSON):
   "age": 6
 }
 ```
-Description: Creates a new user.
 
 5. UPDATE languages  
 Endpoint: PUT /users/languages  
+Description: Adds a new language to a user's existing languages using their email.
 Example Body:
 ```
 {
@@ -53,7 +57,6 @@ Example Body:
   "language": "portuguese"
 }
 ```
-Description: Adds a new language to a user's existing languages using their email.
 
 5. DELETE users under 18   
 Endpoint: DELETE /users/under-18  
