@@ -52,7 +52,7 @@ app.post('/userlanguages', async (req, res) => {
     const newUser = await prisma.user.create({
       data: {
         name, // name: 'Athena',
-        email, //Add user with this email : thenupatenu@meow.com
+        email, //Added user with this email : thenupatenu@meow.com
         languages, // languages: ['swedish', 'lithuanian']
         age      } // age: 6
     });  // yes it's my cat's info :D
@@ -65,11 +65,17 @@ app.post('/userlanguages', async (req, res) => {
   }
 });
 
-app.put('/userlanguages', async (req, res) => {
+app.patch('/users/languages', async (req, res) => {
   try {
+    const { email, language } = req.body;
+
     const updatedUser = await prisma.user.update({
-      where: {email: 'thenupatenu@meow.com'}, // OR where : {email: 'thenupatenu@meow.com}
-      data: {email: 'goddessofwar@meow.com'} // data: { languages: { push: 'english' } }
+      where: { email },
+      data: {
+        languages: {
+          push: language
+        }
+      }
     });
     res.json(updatedUser);
   } catch (error) {
@@ -80,7 +86,7 @@ app.put('/userlanguages', async (req, res) => {
   }
 });
 
-app.delete('/userlanguages', async (req, res) => {
+app.delete('/users/under-18', async (req, res) => {
   try {
     const result = await prisma.user.deleteMany({
       where: {
