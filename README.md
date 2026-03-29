@@ -1,15 +1,15 @@
 # PrismaExpressAPI
 
 ## 🚀 How to run the server
-*Install dependencies:
+* Install dependencies:
 npm install
-*Generate Prisma client:
+* Generate Prisma client:
 npx prisma generate
-*Run database migrations (if needed):
+* Run database migrations (if needed):
 npx prisma migrate dev
-*Seed the database:
+* Seed the database:
 npm run seed
-*Start the server:
+* Start the server:
 npm run dev
 
 Server will run on:
@@ -20,10 +20,6 @@ You can test the API using:
 Insomnia
 Postman
 Thunder Client (VS Code)
-curl (terminal)
-
-Example using curl:
-curl http://localhost:3000/userlanguages
 
 📌 Available Routes
 1. GET all users
